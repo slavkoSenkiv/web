@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:run": "nodemon build/index.js",
+    "start:build": "tsc -w",
+    "start": "concurrently \"npm:start:run\" \"npm:start:build\""
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "parcel": "^2.9.3",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.1"
   }
 }
