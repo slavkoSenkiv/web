@@ -8,11 +8,12 @@
     "start:build": "tsc -w",
     "start:parcel": "npx parcel index.html",
     "start:db": "json-server -w db.json",
-    "start": "concurrently \"npm:start:run\" \"npm:start:build\" \"npm:start:parcel\" \"start:db:parcel\""
+    "start": "concurrently \"npm:start:run\" \"npm:start:build\" \"npm:start:parcel\" \"npm:start:db\""
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "buffer": "^6.0.3",
     "parcel": "^2.9.3",
     "typescript": "^5.2.2"
   },
