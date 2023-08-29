@@ -22,5 +22,9 @@ user.trigger('save'); */
   age: 21
 }); */
 //axios.get('http://localhost:3000/users/1'); 
-const user = new User({id: 1});
+//const user = new User({id: 1});
+//user.set({ name: 'NEW NAME 3', age: 23});
+
+const user = new User({name: 'new record', age: 0});
 user.fetch();
+user.save();
