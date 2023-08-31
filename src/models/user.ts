@@ -6,19 +6,25 @@ interface UserProps {
   age? : number;
 }
 
+type Callback = () => void;
+
 export class User {
+
+  events: {[key: string]: Callback[]} = {};
+
   constructor (private data: UserProps) {}
 
-  get<K extends keyof UserProps>(propName: K): string | number | void {
-    return this.data[propName];
+  get<K extends keyof UserProps>(propertyName: K): number | string | void {
+    return this.data[propertyName];
   }
 
-  set() {
-
+  set(update: UserProps): void {
+    Object.assign(this.data, update);
   }
 
-  on() {
-
+  on(eventName: string): void {
+    let handlers = this.events[eventName] || [];
+    
   }
 
   trigger() {
