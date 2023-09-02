@@ -1,10 +1,12 @@
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 
 interface UserProps {
   id? : number;
   name? : string;
   age? : number;
 }
+
+const url = 'http://localhost:3000/users/'
 
 type Callback = () => void;
 
@@ -34,11 +36,37 @@ export class User {
     handlers.forEach(callback => callback());
   }
 
-  fetch() {
-
+  fetch(): void {
+    const id = this.get('id');
+    if (id) {
+      axios.get(url+id)
+        .then((response: AxiosResponse): void => {
+          this.set(response.data);
+        })
+        .catch((error) => {
+          console.error('Axios Error:', error);
+        });
+    }
   }
-
-  save() {
-
+  
+  save(): void {
+    const id = this.get('id');
+    if (id) {
+      axios.put(url+id, this.data)
+        .catch((error) => {
+          console.error('Axios Error:', error);
+        });
+    } else {
+      axios.post(url, this.data)
+        .catch((error) => {
+          console.error('Axios Error:', error);
+        });
+    }
   }
+  
 }
+
+
+/* {
+  "users": []
+} */
