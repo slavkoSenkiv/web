@@ -1,10 +1,9 @@
 import { User } from "./models/User";
 
-const user = new User({name: 'slav', age: 28});
-user.set({id: 1});
+const user = new User({id: 1, name: 'slav1', age: 28});
+user.fetch();
 user.save();
-user.fetch()
-/* console.log(user);
+console.log(user);
 
 console.log(user.get('name'));
 console.log(user.get('age'));
@@ -19,7 +18,7 @@ console.log(user);
 
 user.trigger('click');
 user.trigger('save');
- */
+
 
 
 
