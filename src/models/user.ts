@@ -59,14 +59,10 @@ export class User {
     } else {
       axios.post(url, this.data)
         .catch((error) => {
-          console.error('Axios Error:', error);
+          console.error('Axios Error:', error); 
         });
     }
   }
   
 }
-
-
-/* {
-  "users": []
-} */
+// qwd
