@@ -1,3 +1,6 @@
+import axios, {AxiosResponse} from "axios";
+
+const url = 'http://localhost:3000/users/'
 
 interface UserProps {
   id? : number;
@@ -33,5 +36,20 @@ export class User {
     handlers.forEach(callback => callback());
   }
 
+  fetch(): void {
+    axios.get(url + this.get('id'))
+    .then((response: AxiosResponse): void => {
+      this.set(response.data);
+    });
+  }
+
+  save(): void {
+    let id = this.get('id');
+    if (id) {
+      axios.put(url + id, this.data);
+    } else {
+      axios.post(url, this.data);
+    }
+  }
 
 }

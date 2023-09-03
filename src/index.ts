@@ -8,3 +8,7 @@ console.log(user);
 user.on('click', ()=>console.log('click here'));
 console.log(user);
 user.trigger('click');
+
+user.fetch();
+
+user.save();
